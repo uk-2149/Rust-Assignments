@@ -9,5 +9,5 @@
 */
 
 pub fn append_world(mut s: String) -> String {
-    todo!()
+    s+" world"
 }

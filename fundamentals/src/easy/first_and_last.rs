@@ -9,5 +9,5 @@
 */
 
 pub fn first_and_last(slice: &[i32]) -> Option<(i32, i32)> {
-    todo!()
+    Some((*slice.first()?, *slice.last()?))
 }
