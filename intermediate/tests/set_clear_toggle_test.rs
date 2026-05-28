@@ -51,3 +51,7 @@ fn test_set_multiple_bits() {
     let v = set_bit(set_bit(0b0000, 0), 1);
     assert_eq!(v, 0b0011);
 }
+#[test]
+fn test_clear_already_clear_in_nonzero_value() {
+    assert_eq!(clear_bit(0b1101, 1), 0b1101);
+}
