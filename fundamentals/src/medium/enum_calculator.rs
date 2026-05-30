@@ -9,6 +9,8 @@
     cargo test --test enum_calculator_test
 */
 
+use core::f64;
+
 pub enum Operation {
     Add(f64, f64),
     Sub(f64, f64),
@@ -17,5 +19,16 @@ pub enum Operation {
 }
 
 pub fn calculate(op: Operation) -> Result<f64, String> {
-    todo!()
+    match op {
+        Operation::Add(a,b ) => Ok(a+b),
+        Operation::Sub(a,b ) => Ok(a-b),
+        Operation::Mul(a,b ) => Ok(a*b),
+        Operation::Div(a,b ) => {
+            if b == 0.0 {
+                Err("Division by 0 not possible".to_string())
+            } else {
+                Ok(a/b)
+            }
+        }
+    }
 }
