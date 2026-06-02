@@ -9,5 +9,14 @@
 */
 
 pub fn compute_checksum(data: &[u8]) -> u8 {
-    todo!()
+    if data.is_empty() {
+      return 0;
+    }
+    let mut checksum = 0;
+
+    for byte in data {
+        checksum ^= *byte;
+    }
+
+    checksum
 }

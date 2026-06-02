@@ -18,9 +18,16 @@ pub enum AppError {
 pub type AppResult<T> = Result<T, AppError>;
 
 pub fn find_user(id: u32) -> AppResult<String> {
-    todo!() // Return Ok("User_<id>") if id > 0, else NotFound
+    // todo!()  Return Ok("User_<id>") if id > 0, else NotFound
+    if id<=0 {
+        return Err(AppError::NotFound(format!("User {} not found", id.to_string())));
+    }
+    Ok(format!("User_{}", id))
 }
 
 pub fn parse_age(input: &str) -> AppResult<u32> {
-    todo!() // Parse the string as u32, return ParseFailed on error
+    // todo!()  Parse the string as u32, return ParseFailed on error
+    let res: Result<u32, AppError> = input.parse().or(Err(AppError::ParseFailed(input.to_string())));
+
+    res
 }

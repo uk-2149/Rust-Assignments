@@ -19,6 +19,10 @@ pub struct Point {
 
 impl fmt::Display for Point {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        todo!()
+        let fx = format!("{:.2}", self.x);
+        let fy = format!("{:.2}", self.y);
+
+        write!(f,"({}, {})", fx, fy)?;
+        Ok(())
     }
 }

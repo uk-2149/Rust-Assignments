@@ -50,7 +50,7 @@ impl fmt::Display for Phonebook {
         entries.sort_by_key(|(name, _)| *name);
 
         for (name, phone) in entries {
-            writeln!(f, "{} : {}", name, phone)?;
+            writeln!(f, "{}: {}", name, phone)?;
         }
 
         Ok(())

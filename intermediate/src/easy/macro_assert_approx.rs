@@ -12,9 +12,18 @@
 #[macro_export]
 macro_rules! assert_approx_eq {
     ($a:expr, $b:expr) => {
-        todo!()
+        let a: f64 = $a;
+        let b: f64 = $b;
+        if (a-b).abs() > 1e-10 {
+            panic!("Diff more than epsilon");
+        }
     };
     ($a:expr, $b:expr, $eps:expr) => {
-        todo!()
+        let a: f64 = $a;
+        let b: f64 = $b;
+        let eps = $eps;
+        if (a-b).abs() > eps {
+            panic!("Diff more than epsilon");
+        }
     };
 }
